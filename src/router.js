@@ -13,9 +13,16 @@ export default new Router({
       component: Home
     },
     {
-      path: '/about',
-      name: 'about',
-      component: About
-    }
-  ]
+      path: '/user',
+      name: 'user',
+      component:User
+    },
+    {
+      path:'/repositories',
+      name: 'repositories',
+      components: Repositories
+    },
+    
+  ],
+  mode: 'history'
 })
