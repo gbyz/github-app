@@ -2,6 +2,8 @@
   <div class="home">
       <Search v-on:SearchRequested="handleSearch"></Search>
       <UserList :users="users"/>
+
+
   </div>
 </template>
 
@@ -10,6 +12,7 @@
 import Search from '../components/Search'
 import UserProfile from '../components/UserProfile'
 import UserList from '../components/UserList'
+import User from '../components/User'
 import HTTP from '../service'
 
 export default { 
@@ -17,11 +20,12 @@ export default {
   components: {
       UserList,
       UserProfile,
-    Search
+    Search,
+    User
   },
     data(){
     return {
-        users:[]
+        users:{}
     }
     },
     methods:{
