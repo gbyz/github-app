@@ -1,11 +1,7 @@
 <template>
   <div class="home">
       <Search v-on:SearchRequested="handleSearch"></Search>
-      <div v-for="(value,key) in users" >
-          <UserProfile  :name="value.login" :key="key"/>
-      </div>
-
-
+      <UserList :users="users"/>
   </div>
 </template>
 
@@ -13,11 +9,13 @@
 // @ is an alias to /src
 import Search from '../components/Search'
 import UserProfile from '../components/UserProfile'
+import UserList from '../components/UserList'
 import HTTP from '../service'
 
 export default { 
   name: 'home',
   components: {
+      UserList,
       UserProfile,
     Search
   },

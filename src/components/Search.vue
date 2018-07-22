@@ -1,7 +1,7 @@
 <template>
     <div class="search">
-        <input type="text" v-model="query" @keypress.enter="handleSearch" />
-        <button @click="handleSearch">Search</button>
+        <input type="text"  v-model="query" @keypress.enter="handleSearch" />
+        <button class="btn btn-primary " @click="handleSearch">Search</button>
     </div>
 </template>
 
