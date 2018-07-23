@@ -43,12 +43,6 @@
                 return `/user/${this.user.login}/repos`;
             }
         },
-        methods:{
-
-        },
-        created(){
-
-        }
     }
 </script>
 
