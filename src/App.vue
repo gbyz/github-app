@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Anasayfa</router-link> 
+      <router-link to="/">Anasayfa</router-link> |
       <!--<router-link to="/about">About</router-link>-->
     </div>
     <router-view/>
@@ -17,7 +17,7 @@
 }
 #nav {
   padding: 30px;
-  text-align: center;
+    text-align: center;
   a {
     font-weight: bold;
     color: #2c3e50;

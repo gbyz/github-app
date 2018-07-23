@@ -9,11 +9,11 @@
         <div v-if="isUsers">
         <user-list></user-list>
         </div>
-    </div> 
     </div>
-    
-    
-</div>   
+    </div>
+
+
+</div>
 </template>
 <script>
 import SearchType from '../components/SearchType.vue'
@@ -35,3 +35,8 @@ data(){
 }
 }
 </script>
+
+<style scoped>
+
+</style>
+>>>>>>> RepoList

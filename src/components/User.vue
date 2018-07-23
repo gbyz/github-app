@@ -28,8 +28,7 @@
 
         },
         created(){
-            console.log("Login");
-            console.log(this.user)
+
         }
     }
 </script>

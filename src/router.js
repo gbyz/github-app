@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'searchview',
+      name: 'home',
       component: SearchView
     },
       {
@@ -21,7 +21,7 @@ export default new Router({
      path: '/repositories',
      name: 'repositories',
      component: Repositories
-   } 
+   }
 
     
   ],

@@ -15,6 +15,7 @@ export default new Vuex.Store({
         'Users',
         'Commits'
       ],
+      isLoading:false
 
   },
   mutations: {
@@ -30,15 +31,21 @@ export default new Vuex.Store({
       setRepo(state, repo) {
           state.repo = repo;
       },
+      setLoading(state, load) {
+          state.isLoading = load;
+      },
   },
   actions: {
       fetchUsers({commit},query){
+          commit('setLoading',true);
           return HTTP.get('search/users',{
               params:{
                   q:query
               }
           }).then((res)=>{
               commit('setUsers', res.data.items);
+              // this.isLoading=false;
+              commit('setLoading',false);
           })
       },
       fetchUser({commit},query){
