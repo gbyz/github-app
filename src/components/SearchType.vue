@@ -1,11 +1,9 @@
 <template>
-<div id="searchType">
+<div id="searchType" class="col-md-12 mt-3">
             <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Search Type</h3>
-                </div>
+
                 <ul class="list-group" v-for="item in $store.state.searchType" >
-                    <a :href=item.toLowerCase() class="list-group-item">{{item}}</a>
+                    <a :href=item.toLowerCase() class="list-group-item " >{{item}}</a>
                    
                 </ul>
             </div>
@@ -14,7 +12,8 @@
 </template>
 <script>
 export default {
-    
+    name:'SearchType',
+
 }
 </script>
 <style>

@@ -3,6 +3,7 @@
     <div class="row">
         <div class="col-md-3">
         <search-type/>
+            <search-lang/>
        </div>
        <div class="col-md-9">
         <search>Ara</search>
@@ -19,10 +20,12 @@
 import SearchType from '../components/SearchType.vue'
 import Search from '../components/Search.vue'
 import UserList from '../components/UserList.vue'
+import SearchLang from "../components/SearchLang";
 export default {
 
 name:'searchView',
 components: {
+    SearchLang,
     SearchType,
     Search,
     UserList,

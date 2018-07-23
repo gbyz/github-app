@@ -1,8 +1,8 @@
 <template>
-    <div class="col-md-12">
+    <div class="col-md-12 mt-3">
         <div class="card ">
             <div class="card-header">
-                <h3 class="card-title">Languages</h3>
+                <h5 class="card-title ">Languages</h5>
             </div>
             <div class="list-group">
                 <button type="button" class="list-group-item list-group-item-action active">PHP</button>
