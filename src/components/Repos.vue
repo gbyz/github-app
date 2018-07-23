@@ -1,5 +1,5 @@
 <template>
-    <div class="container mt-3 p-5">
+    <div class="container ">
         <div class="row">
             <div class="col-md-4 p-3" v-for="(repo,key) in repos">
                 <div class="card text-center">

@@ -1,52 +1,31 @@
 <template>
-  <div class="home">
-      <Search v-on:SearchRequested="handleSearch"></Search>
-      <UserList :users="users"/>
+    <div class="home">
+        <Search v-on:SearchRequested="handleSearch"></Search>
+        <UserList :users="$store.state.users"/>
 
 
-  </div>
+    </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import Search from '../components/Search'
-import UserProfile from '../components/UserProfile'
 import UserList from '../components/UserList'
-import User from '../components/User'
-import HTTP from '../service'
 
-export default { 
-  name: 'home',
-  components: {
-      UserList,
-      UserProfile,
-    Search,
-    User
-  },
-    data(){
-    return {
-        users:{}
-    }
+export default {
+    name: 'home',
+    components: {
+        UserList,
+        Search,
     },
-    methods:{
-      getUserSearch(query){
-          HTTP.get('search/users',{
-              params:{
-                  q:query
-              }
-          }).then((res)=>{
-                  this.users=res.data.items;
-              console.log(res.data.items)
-              })
-      },
-        handleSearch (query) {
-            this.users = [];
-            this.getUserSearch(query)
+    methods: {
+        handleSearch(query) {
+            this.$store.state.users = {};
+            this.$store.dispatch('fetchUsers', query);
         }
     },
-    created(){
-      this.getUserSearch('gelistirirken')
+    created() {
+        this.$store.dispatch('fetchUsers', 'gelistirirken');
     }
-
 }
 </script>
