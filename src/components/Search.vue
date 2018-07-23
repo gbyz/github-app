@@ -1,5 +1,5 @@
 <template>
-    <div class="search">
+    <div class="col-12 search">
         <input type="text"  v-model="query" @keypress.enter="handleSearch" />
         <button class="btn btn-primary " @click="handleSearch">Search</button>
     </div>
@@ -25,12 +25,13 @@
         padding: 10px 20px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        width: 400px;
+        width: 70%;
     }
     .search button{
-        padding: 5px 15px;
+        padding: 10px 20px;
         border:1px solid #ccc;
-        background-color: #c1c;
+        background-color: rgb(50, 23, 75);
         color: #fff;
+        height: 100%;
     }
 </style>

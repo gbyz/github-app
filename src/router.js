@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import SearchView from './views/SearchView'
 import Repositories from './views/Repositories'
 
 Vue.use(Router);
@@ -9,14 +9,19 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: Home
+      name: 'searchview',
+      component: SearchView
     },
       {
           path: '/user/:username/repos',
           name: 'user-repos',
           component: Repositories
       },
+   {
+     path: '/repositories',
+     name: 'repositories',
+     component: Repositories
+   } 
 
     
   ],
