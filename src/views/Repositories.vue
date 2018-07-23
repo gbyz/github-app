@@ -1,6 +1,6 @@
 <template>
     <div >
-        <div class="row pl-5">
+        <div class="row pl-5 m-3" >
             <div class="col-md-3">
                 <User :user="$store.state.user" />
             </div>

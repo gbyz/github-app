@@ -1,7 +1,7 @@
 <template>
     <div class="container ">
         <div class="row">
-            <div class="col-md-4 p-3" v-for="(repo,key) in repos">
+            <div class="col-md-6 p-3" v-for="(repo,key) in repos">
                 <div class="card text-center">
                     <div class="card-header">
                         {{repo.name}}
@@ -17,7 +17,7 @@
                         <a :href="repo.html_url" class="btn btn-primary">Show</a>
                     </div>
                     <div class="card-footer text-muted">
-                        {{repo.created_at}}
+                        {{repo.created_at}} | {{repo.language}}
                     </div>
                 </div>
             </div>
