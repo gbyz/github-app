@@ -10,6 +10,11 @@ export default new Vuex.Store({
       user:{},
       repos:{},
       repo:{},
+      searchType:[
+        'Repositories',
+        'Users',
+        'Commits'
+      ],
 
   },
   mutations: {

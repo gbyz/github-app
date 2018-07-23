@@ -3,11 +3,7 @@
         <div class="row">
             <div class="col-md-12"  >
                 <ul>
-                    <li>user</li>
-                    <li>user</li>
-                    <li>user</li>
-                    <li>user</li>
-                    <li>user</li>
+                   
                 </ul>
             </div>
         </div>

@@ -5,7 +5,9 @@
     </div>
     <div class="col-9">
         <search>Ara</search>
+        <div v-if="isUsers">
         <user-list></user-list>
+        </div>
     </div> 
 </div>   
 </template>
@@ -21,8 +23,11 @@ components: {
     Search,
     UserList,
 
+},
+data(){
+    return {
+        isUsers:true,
+    }
 }
-
-    
 }
 </script>
