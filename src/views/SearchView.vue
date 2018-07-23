@@ -8,7 +8,7 @@
        <div class="col-md-9">
         <search v-on:SearchRequested="handleSearch">Ara</search>
         <div v-if="isUsers">
-        <user-list></user-list>
+        <user-list :users=$store.state.users />
         </div>
     </div>
     </div>
@@ -21,6 +21,7 @@ import SearchType from '../components/SearchType.vue'
 import Search from '../components/Search.vue'
 import UserList from '../components/UserList.vue'
 import SearchLang from "../components/SearchLang";
+import List from "../components/List";
 export default {
 
 name:'searchView',
@@ -29,6 +30,7 @@ components: {
     SearchType,
     Search,
     UserList,
+    List,
 
 },
 data(){
@@ -38,10 +40,14 @@ data(){
 },
     methods: {
         handleSearch(query) {
+        
             this.$store.state.users = {};
             this.$store.dispatch('fetchUsers', query);
         }
     },
+    created(){
+        this.handleSearch('canylmz')
+    }
 }
 </script>
 
