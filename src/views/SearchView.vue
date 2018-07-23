@@ -1,14 +1,18 @@
 <template>
-<div id="searchView" class="row">
-    <div class="col-3">
-    <search-type/>
-    </div>
-    <div class="col-9">
+<div id="searchView" class="container">
+    <div class="row">
+        <div class="col-md-3">
+        <search-type/>
+       </div>
+       <div class="col-md-9">
         <search>Ara</search>
         <div v-if="isUsers">
         <user-list></user-list>
         </div>
     </div> 
+    </div>
+    
+    
 </div>   
 </template>
 <script>
