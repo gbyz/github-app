@@ -6,7 +6,7 @@
             <search-lang/>
        </div>
        <div class="col-md-9">
-        <search>Ara</search>
+        <search v-on:SearchRequested="handleSearch">Ara</search>
         <div v-if="isUsers">
         <user-list></user-list>
         </div>
@@ -35,7 +35,13 @@ data(){
     return {
         isUsers:true,
     }
-}
+},
+    methods: {
+        handleSearch(query) {
+            this.$store.state.users = {};
+            this.$store.dispatch('fetchUsers', query);
+        }
+    },
 }
 </script>
 
