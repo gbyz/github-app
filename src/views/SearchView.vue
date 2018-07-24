@@ -6,10 +6,11 @@
             <search-lang/>
        </div>
        <div class="col-md-9">
-        <search v-on:SearchRequested="handleSearch">Ara</search>
-        <div v-if="isUsers">
-        <user-list :users=$store.state.users />
-        </div>
+            <search v-on:SearchRequested="handleSearch">Ara</search>
+           <search-error  />
+            <user-list  v-if="$store.state.selectedSearchType === 'users' " :users=$store.state.users />
+            <repos-list v-if="$store.state.selectedSearchType === 'repositories' " :users="$store.state.searchType"/>
+
     </div>
     </div>
 
@@ -20,8 +21,10 @@
 import SearchType from '../components/SearchType.vue'
 import Search from '../components/Search.vue'
 import UserList from '../components/UserList.vue'
+import ReposList from '../components/ReposList.vue'
 import SearchLang from "../components/SearchLang";
-import List from "../components/List";
+import SearchError from "../components/SearchError";
+
 export default {
 
 name:'searchView',
@@ -30,8 +33,9 @@ components: {
     SearchType,
     Search,
     UserList,
-    List,
-
+    ReposList,
+    SearchError,
+    
 },
 data(){
     return {
@@ -42,7 +46,13 @@ data(){
         handleSearch(query) {
         
             this.$store.state.users = {};
+            this.$store.state.searchQuery = query;
             this.$store.dispatch('fetchUsers', query);
+            this.$store.state.repos = {};
+            this.$store.dispatch('fetchRepos', query);
+
+
+
         }
     },
     created(){

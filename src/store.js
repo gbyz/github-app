@@ -10,12 +10,15 @@ export default new Vuex.Store({
       user:{},
       repos:{},
       repo:{},
-      searchType:[
-        'Repositories',
-        'Users',
-        'Commits'
-      ],
-      isLoading:false
+      selectedSearchType:'users',
+      searchType: {
+          repositories:'Repositories',
+          users:'Users',
+          commits:'Commits'
+      },
+      searchQuery:'users',
+      isLoading:false,
+      isError:false,
 
   },
   mutations: {
@@ -24,6 +27,9 @@ export default new Vuex.Store({
       },
       setUsers(state, users) {
           state.users = users;
+      },
+      setSearchQuery(state, searchQuery) {
+          state.searchQuery = searchQuery;
       },
       setRepos(state, repos) {
           state.repos = repos
@@ -34,9 +40,15 @@ export default new Vuex.Store({
       setLoading(state, load) {
           state.isLoading = load;
       },
+      setIsError(state, error) {
+          state.isError = error;
+      },
+      setSelectedSearchType(state, selectedSearchType) {
+          state.selectedSearchType = selectedSearchType
+      },
   },
   actions: {
-      fetchUsers({commit},query){
+      fetchUsers({commit,dispatch},query){
           commit('setLoading',true);
           return HTTP.get('search/users',{
               params:{
@@ -44,25 +56,47 @@ export default new Vuex.Store({
               }
           }).then((res)=>{
               commit('setUsers', res.data.items);
-              // this.isLoading=false;
               commit('setLoading',false);
+              dispatch('searchError')
           })
       },
       fetchUser({commit},query){
-          return HTTP.get('search/users',{
-              params:{
-                  q:query
-              }
-          }).then((res)=>{
-              commit('setUser', res.data.items[0]);
+          return HTTP.get('users/'+query)
+          .then((res)=>{
+              commit('setUser', res.data);
           })
       },
+    fetchRepos({commit,dispatch},query){
+        commit('setLoading',true);
+        return HTTP.get('search/repositories',{
+            params:{
+                q:query
+            }
+        }).then((res)=>{
+            commit('setRepos', res.data.items);
+            dispatch('searchError')
+        })
+    },
       fetchUserRepos({commit,dispatch},query) {
           HTTP.get(`users/${query}/repos`)
               .then((res) => {
                   commit('setRepos', res.data);
                   dispatch('fetchUser', query);
               })
+      },
+      changeSearchType({commit},searchType){
+          commit('setSelectedSearchType',searchType)
+      },
+      changeSearchQuery({commit},searchQuery){
+          commit('setSearchQuery',searchQuery)
+      },
+      searchError({dispatch,commit}){
+          if(this.state.selectedSearchType === 'repositories' ){
+              commit('setIsError',(!this.state.repos.length > 0));
+          }
+          else if(this.state.selectedSearchType === 'users'){
+              commit('setIsError',(!this.state.users.length > 0));
+          }
 
       },
 
