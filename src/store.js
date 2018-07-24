@@ -6,9 +6,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+      users:{},
       user:{},
       repos:{},
-      users:{},
       repo:{},
       selectedSearchType:'users',
       searchType: {
@@ -34,7 +34,6 @@ export default new Vuex.Store({
       setRepos(state, repos) {
           state.repos = repos
       },
-
       setRepo(state, repo) {
           state.repo = repo;
       },
@@ -62,12 +61,9 @@ export default new Vuex.Store({
           })
       },
       fetchUser({commit},query){
-          return HTTP.get('search/users',{
-              params:{
-                  q:query
-              }
-          }).then((res)=>{
-              commit('setUser', res.data.items[0]);
+          return HTTP.get('users/'+query)
+          .then((res)=>{
+              commit('setUser', res.data);
           })
       },
     fetchRepos({commit,dispatch},query){
@@ -103,8 +99,6 @@ export default new Vuex.Store({
           }
 
       },
-
-
 
   }
 })
