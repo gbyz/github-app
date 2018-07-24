@@ -18,7 +18,7 @@ export default new Router({
           name: 'user-repos',
           component: ReposList
       },
-    {
+   {
      path: '/repositories',
      name: 'repositories',
      component: Repositories

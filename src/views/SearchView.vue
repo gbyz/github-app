@@ -2,10 +2,9 @@
 <div id="searchView" class="container">
     <div class="row">
         <div class="col-md-3">
-            <search-type/>
+        <search-type/>
             <search-lang/>
        </div>
-
        <div class="col-md-9">
             <search v-on:SearchRequested="handleSearch">Ara</search>
            <search-error  />
@@ -46,14 +45,7 @@ data(){
 },
     methods: {
         handleSearch(query) {
-            // if (this.$store.state.selectedSearchType === 'users'){
-            //     this.$store.state.users = {};
-            //     this.$store.dispatch('fetchUsers', query);
-            // }
-            // else{
-            //     this.$store.state.repos = {};
-            //     this.$store.dispatch('fetchRepos', query);
-            // }
+        
             this.$store.state.users = {};
             this.$store.state.searchQuery = query;
             this.$store.dispatch('fetchUsers', query);
@@ -73,4 +65,4 @@ data(){
 <style scoped>
 
 </style>
-
+>>>>>>> RepoList
