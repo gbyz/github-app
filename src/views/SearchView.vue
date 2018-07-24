@@ -8,11 +8,10 @@
 
        <div class="col-md-9">
             <search v-on:SearchRequested="handleSearch">Ara</search>
+           <search-error  />
+            <user-list  v-if="$store.state.selectedSearchType === 'users' " :users=$store.state.users />
+            <repos-list v-if="$store.state.selectedSearchType === 'repositories' " :users="$store.state.searchType"/>
 
-            <div v-if="isUsers">
-                <user-list  v-if="$store.state.selectedSearchType === 'users' " :users=$store.state.users />
-                <repos-list v-if="$store.state.selectedSearchType === 'repos' " :users="$store.state.searchType"/>
-            </div>
     </div>
     </div>
 
@@ -25,6 +24,7 @@ import Search from '../components/Search.vue'
 import UserList from '../components/UserList.vue'
 import ReposList from '../components/ReposList.vue'
 import SearchLang from "../components/SearchLang";
+import SearchError from "../components/SearchError";
 import List from "../components/List";
 export default {
 
@@ -35,6 +35,7 @@ components: {
     Search,
     UserList,
     ReposList,
+    SearchError,
     List,
 
 },
@@ -45,14 +46,21 @@ data(){
 },
     methods: {
         handleSearch(query) {
-            if (this.$store.state.selectedSearchType === 'users'){
-                this.$store.state.users = {};
-                this.$store.dispatch('fetchUsers', query);
-            }
-            else{
-                this.$store.state.repos = {};
-                this.$store.dispatch('fetchRepos', query);
-            }
+            // if (this.$store.state.selectedSearchType === 'users'){
+            //     this.$store.state.users = {};
+            //     this.$store.dispatch('fetchUsers', query);
+            // }
+            // else{
+            //     this.$store.state.repos = {};
+            //     this.$store.dispatch('fetchRepos', query);
+            // }
+            this.$store.state.users = {};
+            this.$store.state.searchQuery = query;
+            this.$store.dispatch('fetchUsers', query);
+            this.$store.state.repos = {};
+            this.$store.dispatch('fetchRepos', query);
+
+
 
         }
     },
