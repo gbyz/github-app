@@ -20,12 +20,6 @@
         components: {
             SearchError,
             Repo,
-        },computed:{
-            // isEmpty(query) {
-            //
-            //     this.$store.state.users = {};
-            //     this.$store.dispatch('fetchUsers', query);
-            // }
         },
         methods: {
             handleSearch(query) {

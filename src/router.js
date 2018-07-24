@@ -17,12 +17,6 @@ export default new Router({
           name: 'user-repos',
           component: Repositories
       },
-   {
-     path: '/repositories',
-     name: 'repositories',
-     component: Repositories
-   }
-
     
   ],
   mode: 'history'

@@ -24,7 +24,7 @@ import UserList from '../components/UserList.vue'
 import ReposList from '../components/ReposList.vue'
 import SearchLang from "../components/SearchLang";
 import SearchError from "../components/SearchError";
-import List from "../components/List";
+
 export default {
 
 name:'searchView',
@@ -35,8 +35,7 @@ components: {
     UserList,
     ReposList,
     SearchError,
-    List,
-
+    
 },
 data(){
     return {

@@ -10,12 +10,6 @@
                    {{repo.description}}
                 </p>
 
-                <!--<div class="topics-row-container col-9 d-inline-flex flex-wrap flex-items-center f6 my-1">-->
-                    <!--<a href="/topics/tetris" class="topic-tag topic-tag-link f6 my-1">-->
-                        <!--tetris-->
-                    <!--</a>-->
-                <!--</div>-->
-
                 <div class="d-flex">
 
                     <p class="f6 text-gray mr-3 mb-0 mt-2">
@@ -49,9 +43,6 @@
 </script>
 
 <style scoped>
-    .repo-list {
-        position: relative;
-    }
     .repo-list-item {
         position: relative;
         padding-top: 30px;
@@ -70,36 +61,19 @@
         color: #586069 !important;
     }
 
-    .topics-row-container {
-        height: 30px;
-        overflow: hidden;
-    }
     .f6 {
         font-size: 12px !important;
     }
-    .my-1 {
-        margin-top: 4px !important;
-        margin-bottom: 4px !important;
-    }
+   
 
     .d-inline-block {
         display: inline-block !important;
     }
-    .topic-tag {
-        display: inline-block;
-        padding: 0.3em 0.9em;
-        margin: 0 0.5em 0.5em 0;
-        white-space: nowrap;
-        background-color: #f1f8ff;
-        border-radius: 3px;
-    }
+
     .f6 {
         font-size: 12px !important;
     }
-    .my-1 {
-        margin-top: 4px !important;
-        margin-bottom: 4px !important;
-    }
+
     i, cite, em, var, address, dfn {
         font-style: italic;
     }

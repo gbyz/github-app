@@ -54,9 +54,6 @@
 .pr-3 {
     padding-right: 16px !important;
 }
-.col-3 {
-    width: 25%;
-}
 .avatar {
     display: inline-block;
     overflow: hidden;
@@ -95,9 +92,6 @@ h1 {
     font-weight: 300;
     line-height: 24px;
     color: #666;
-}
-.mb-3 {
-    margin-bottom: 16px !important;
 }
 .vcard-details {
     list-style: none;

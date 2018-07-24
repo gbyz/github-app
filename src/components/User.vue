@@ -80,7 +80,7 @@
     top: 0;
     left: 0;
 }
-.user-list-item+.user-list-item {
+.user-list-item {
    border-top: 1px solid #e1e4e8;
 }
 .avatar {
