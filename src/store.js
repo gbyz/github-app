@@ -49,19 +49,16 @@ export default new Vuex.Store({
           })
       },
       fetchUser({commit},query){
-          return HTTP.get('search/users',{
-              params:{
-                  q:query
-              }
-          }).then((res)=>{
-              commit('setUser', res.data.items[0]);
+          return HTTP.get('users/'+query)
+          .then((res)=>{
+              commit('setUser', res.data);
           })
       },
-      fetchUserRepos({commit,dispatch},query) {
+      fetchUserRepos({commit},query) {
           HTTP.get(`users/${query}/repos`)
               .then((res) => {
                   commit('setRepos', res.data);
-                  dispatch('fetchUser', query);
+                  
               })
 
       },

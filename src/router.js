@@ -15,9 +15,9 @@ export default new Router({
       component: SearchView
     },
       {
-          path: '/user/:username/repos',
+          path: '/users/:username/repos',
           name: 'user-repos',
-          component: User
+          component: Repositories
       },
    {
      path: '/repositories',

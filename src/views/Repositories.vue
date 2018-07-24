@@ -2,9 +2,10 @@
     <div >
         <div class="row pl-5 m-3" >
             <div class="col-md-3">
-                <User :user="$store.state.user" />
+                <UserProfile :user="$store.state.user" />
             </div>
             <div class="col-md-9">
+                <h3 >Repositories</h3>
                 <Repos :repos="$store.state.repos"/>
             </div>
 
@@ -16,18 +17,21 @@
 
 <script>
     import Repos from '../components/Repos'
-    import User from '../components/User'
+    import UserProfile from '../components/UserProfile'
 export default {
     name: "Repositories",
     components: {
         Repos,
-        User
+        UserProfile,
     },
     created() {
         this.username = this.$route.params.username;
-        this.$store.dispatch('fetchUserRepos', this.username);
+        console.log(this.username);
+        this.$store.dispatch('fetchUserRepos', this.username)
+        .then(this.$store.dispatch('fetchUser',this.username));
+        
 
-
+      
 
     }
 }
@@ -35,6 +39,8 @@ export default {
 
 </script>
 
-<style>
-
+<style scoped>
+h3{
+ text-align: center;
+}
 </style>

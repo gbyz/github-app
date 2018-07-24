@@ -1,16 +1,16 @@
 <template>
   <div class="d-flex">
-    <a  class="d-table" href="/gelistirirken" >
-      <img class="avatar position-relative" :src="user.avatar_url" width="48" height="48" alt="@gelistirirken">
+    <a  class="d-table" :href="userReposPath" >
+      <img class="avatar position-relative" :src="user.avatar_url" width="48" height="48" >
        </a>    
-       <div class="user-list-info ml-2">
-      <a href="/gelistirirken"><em> </em></a>
-      <span class="f4 ml-1">{{user.login}} </span>
+        <div class="user-list-info ml-2">
+        <a :href="userReposPath"><em> </em></a>
+        <span class="f4 ml-1">{{user.login}} </span>
         <p class="f5 mt-2">
           Student at the KTU Software Engineering
           Intern at movecarbon.com 
         </p>
-      <ul class="user-list-meta d-flex f6 list-style-none text-gray mt-2">
+        <ul class="user-list-meta d-flex f6 list-style-none text-gray mt-2">
           <li class="mr-3">
             <svg class="octicon octicon-location" viewBox="0 0 12 16" version="1.1" width="12" 
                  height="16" aria-hidden="true">
@@ -40,8 +40,9 @@
         },
         computed:{
             userReposPath() {
-                return `/user/${this.user.login}/repos`;
-            }
+                return `/users/${this.user.login}/repos`;
+            },
+            
         },
         methods:{
 
