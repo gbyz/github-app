@@ -10,11 +10,12 @@ export default new Vuex.Store({
       user:{},
       repos:{},
       repo:{},
-      searchType:[
-        'Repositories',
-        'Users',
-        'Commits'
-      ],
+      selectedSearchType:'users',
+      searchType: {
+          repos:'Repositories',
+          users:'Users',
+          commits:'Commits'
+      },
       isLoading:false
 
   },
@@ -28,11 +29,15 @@ export default new Vuex.Store({
       setRepos(state, repos) {
           state.repos = repos
       },
+
       setRepo(state, repo) {
           state.repo = repo;
       },
       setLoading(state, load) {
           state.isLoading = load;
+      },
+      setSelectedSearchType(state, selectedSearchType) {
+          state.selectedSearchType = selectedSearchType
       },
   },
   actions: {
@@ -44,7 +49,6 @@ export default new Vuex.Store({
               }
           }).then((res)=>{
               commit('setUsers', res.data.items);
-              // this.isLoading=false;
               commit('setLoading',false);
           })
       },
@@ -57,14 +61,25 @@ export default new Vuex.Store({
               commit('setUser', res.data.items[0]);
           })
       },
+    fetchRepos({commit},query){
+        return HTTP.get('search/repositories',{
+            params:{
+                q:query
+            }
+        }).then((res)=>{
+            commit('setRepos', res.data.items[0]);
+        })
+    },
       fetchUserRepos({commit,dispatch},query) {
           HTTP.get(`users/${query}/repos`)
               .then((res) => {
                   commit('setRepos', res.data);
                   dispatch('fetchUser', query);
               })
-
       },
+      changeSearchType({commit},searchType){
+          commit('setSelectedSearchType',searchType)
+      }
 
   }
 })
