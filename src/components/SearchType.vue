@@ -19,7 +19,8 @@ export default {
     name:'SearchType',
     methods:{
         handleSearchType(type){
-            this.$store.dispatch('changeSearchType',type)
+            this.$store.dispatch('changeSearchType',type);
+            this.$store.dispatch('searchError')
         }
     }
 

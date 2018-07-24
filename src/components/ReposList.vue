@@ -1,6 +1,7 @@
 <template>
     <div class="repo-list">
-        <div v-for="repo in $store.state.searchType">
+
+        <div v-for="repo in $store.state.repos">
             <repo :repo=repo />
         </div>
     </div>
@@ -8,6 +9,7 @@
 
 <script>
     import Repo from '../components/Repo'
+    import SearchError from '../components/SearchError'
     export default {
         name: "ReposList",
         data(){
@@ -16,7 +18,14 @@
             }
         },
         components: {
+            SearchError,
             Repo,
+        },computed:{
+            // isEmpty(query) {
+            //
+            //     this.$store.state.users = {};
+            //     this.$store.dispatch('fetchUsers', query);
+            // }
         },
         methods: {
             handleSearch(query) {
@@ -25,13 +34,6 @@
                 this.$store.dispatch('fetchUsers', query);
             }
         },
-        created() {
-            this.username = this.$route.params.username;
-            this.$store.dispatch('fetchUserRepos', this.username);
-
-
-
-        }
     }
 </script>
 
@@ -39,4 +41,5 @@
     .repo-list {
         position: relative;
     }
+
 </style>

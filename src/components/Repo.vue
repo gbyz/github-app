@@ -1,29 +1,20 @@
 <template>
         <div class="repo-list-item d-flex flex-justify-start py-4 public source">
             <div class="col-8 pr-3">
-                <h3>
-                    <a class="v-align-middle" href="/chvin/react-tetris">chvin/react-<em>tetris</em></a>
+                <h4>
+                    <a class="v-align-middle" href="">{{repo.full_name}}<em></em></a>
 
-                </h3>
+                </h4>
 
                 <p class="col-9 d-inline-block text-gray mb-2 pr-4">
-                    Use React, Redux, Immutable to code <em>Tetris</em>
+                   {{repo.description}}
                 </p>
 
-                <div class="topics-row-container col-9 d-inline-flex flex-wrap flex-items-center f6 my-1">
-                    <a href="/topics/tetris" class="topic-tag topic-tag-link f6 my-1">
-                        tetris
-                    </a>
-                    <a href="/topics/redux" class="topic-tag topic-tag-link f6 my-1" >
-                        redux
-                    </a>
-                    <a href="/topics/react" class="topic-tag topic-tag-link f6 my-1">
-                        react
-                    </a>
-                    <a href="/topics/immutable" class="topic-tag topic-tag-link f6 my-1" >
-                        immutable
-                    </a>
-                </div>
+                <!--<div class="topics-row-container col-9 d-inline-flex flex-wrap flex-items-center f6 my-1">-->
+                    <!--<a href="/topics/tetris" class="topic-tag topic-tag-link f6 my-1">-->
+                        <!--tetris-->
+                    <!--</a>-->
+                <!--</div>-->
 
                 <div class="d-flex">
 
@@ -36,13 +27,13 @@
 
             <div class="d-table-cell col-2 text-gray pt-2">
                 <span class="repo-language-color ml-0" style="background-color:#f1e05a;"></span>
-                JavaScript
+                {{repo.language}}
             </div>
 
             <div class="col-2 text-right pt-1 pr-3 pt-2">
-                <a class="muted-link" href="/chvin/react-tetris/stargazers">
+                <a class="muted-link" >
                     <svg aria-label="star" class="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14" height="16" role="img"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74L14 6z"></path></svg>
-                    3.5k
+                   {{repo.stargazers_count}}
                 </a>
             </div>
         </div>
