@@ -40,9 +40,10 @@ data(){
 },
     methods: {
         handleSearch(query) {
-        
+
             this.$store.state.users = {};
             this.$store.dispatch('fetchUsers', query);
+           
         }
     },
     created(){
