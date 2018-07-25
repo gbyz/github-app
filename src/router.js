@@ -7,17 +7,17 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: SearchView
-    },
+
       {
           path: '/users/:username/repos',
           name: 'user-repos',
           component: Repositories
       },
-    
+      {
+          path: '*',
+          name: 'home',
+          component: SearchView
+      },
   ],
   mode: 'history'
 })
